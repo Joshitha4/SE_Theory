@@ -5,6 +5,7 @@ from django.shortcuts import (get_object_or_404,
 from django.http import HttpResponse,  HttpResponseRedirect
 from django.contrib import messages
 from django.urls import reverse
+from users.models import Profile
 from .models import Items, ItemsCart
 from .forms import ItemsForm, ItemsCartForm
 from se_theory.settings import EMAIL_HOST_USER
@@ -36,15 +37,16 @@ def create_view(request):
 def list_view(request):
     context = {}
     context["dataset"] = Items.objects.raw('Select * from blog_Items')
+    print(context)
     return render(request, "blog/home.html", context)
 
 
 def search(request):
     if request.method == "GET":
         query = request.GET.get('search')
-        results = Items.objects.all().filter(item_name=query).values()
+        results = Items.objects.all().filter(item_name=query)
         #results=Items.objects.all().raw("Select * from blog_Items where item_name='%s'",[query])
-        print(results)
+        print(results)     
 
     return render(request, "blog/search.html", {'query': query, 'results': results})
 
@@ -52,7 +54,7 @@ def search(request):
 def detail_view(request, id):
     context = {}
     context["data"] = Items.objects.get(id=id)
-
+    print(context)
     return render(request, "blog/itemdetails.html", context)
 
 
@@ -77,14 +79,15 @@ def delete_view(request, id):
 
 
 def buy(request, id):
-    obj = get_object_or_404(Items, id=id)
     name = Items.objects.all().filter(id=id).values()
     k = name[0]['author_id']
+    print(k)
     m = name[0]['item_name']
     context = {}
-    context['dataset'] = User.objects.all().filter(id=k).values()
+    context['dataset'] = User.objects.all().filter(id=k)
     con = User.objects.all().filter(id=k).values()
     print(con)
+
     c = con[0]['email']
 
     form = ItemsCartForm(request.POST or None)
