@@ -1,1 +1,0 @@
-web: gunicorn se_theory.wsgi --log-file 
