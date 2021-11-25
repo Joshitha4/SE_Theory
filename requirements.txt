@@ -17,6 +17,7 @@ click==7.1.2
 click-didyoumean==0.0.3
 click-plugins==1.1.1
 click-repl==0.2.0
+colorama==0.4.4
 constantly==15.1.0
 cryptography==3.4.7
 daphne==3.0.2
@@ -33,6 +34,7 @@ eventlet==0.31.1
 ffmpeg==1.4
 gevent==21.1.2
 greenlet==1.1.0
+gunicorn==20.1.0
 hiredis==2.0.0
 hyperlink==21.0.0
 idna==3.2
@@ -62,6 +64,7 @@ six==1.16.0
 sqlparse==0.4.1
 tqdm==4.62.2
 Twisted==21.2.0
+twisted-iocpsupport==1.0.2
 txaio==21.2.1
 urllib3==1.26.6
 vine==5.0.0
