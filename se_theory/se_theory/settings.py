@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'django-insecure-dbm0k^ws5=w*j9jauz8gdg&*jdee#90qr0fn02ez^f48zbc-g*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['enigmatic-harbor-78632.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['enigmatic-harbor-78632.herokuapp.com', '127.0.0.1']
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -134,10 +134,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-MEDIA_URL='/media/'
-STATIC_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static","static-only")
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "static-only")
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL='blog-home'
-LOGIN_URL='login'
-CRISPY_TEMPLATE_PACK='bootstrap4'
+LOGIN_REDIRECT_URL = 'blog-home'
+LOGIN_URL = 'login'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
